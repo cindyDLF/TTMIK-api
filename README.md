@@ -4,7 +4,7 @@ Express, TypeORM, Graphql, Postgres
 
 ## Installation
 
-créer une base de données :
+créez une base de données :
 
 ```bash
 createdb nomdedb
