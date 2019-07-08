@@ -26,7 +26,11 @@ const startServer = async () => {
     })
   );
 
-  app.listen(port, () => console.log(`Server is listening on port ${port}`));
+  const url = `http://localhost:${port}/graphql`;
+
+  app.listen(port, () =>
+    console.log(`Server is listening on port ${port} ==> go to ${url}`)
+  );
 };
 
 startServer();
