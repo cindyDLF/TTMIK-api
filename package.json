@@ -1,0 +1,28 @@
+{
+  "name": "talk-to-me-in-korean-back",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "author": "Cindy DE LA FUENTE",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node ./src/server.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-preset-env": "^1.7.0",
+    "bcrypt": "^3.0.6",
+    "class-validator": "^0.9.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.11.0",
+    "typeorm": "^0.2.18"
+  }
+}
