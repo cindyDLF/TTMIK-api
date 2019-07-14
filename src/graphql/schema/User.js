@@ -19,8 +19,11 @@ export const User = buildSchema(
    login(email: String!, password: String!): User!
 }
 type Mutation {
-  addUser(username: String!,  password: String!, email: String!): User!
-  updateEmail(id: Int!, email: String!): User!
+  addUser(username: String!,  password: String!, email: String!): String!
+  updateEmail(id: Int!, email: String!): String!
+  updatePassword(id: Int!, newPassword: String!): String!
+  updateLevel(id: Int!, level: Int): String!
+  updatePoint(id: Int!, point: Int): String!
 }
 `
 );
