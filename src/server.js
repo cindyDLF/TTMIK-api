@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import { createConnection } from "typeorm";
 import graphqlHTTP from "express-graphql";
 import { BdConfig } from "../config";
-import { User } from "./graphql/schema/User";
+import { User } from "./graphql/schema/index";
 import { resolversUser } from "./graphql/resolvers/user";
 
 const app = express();
