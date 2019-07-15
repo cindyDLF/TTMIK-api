@@ -13,8 +13,9 @@ export const User = buildSchema(
     level: Int!
     date_register: DateTime!
   }
+
   type Query {
-   user(id: Int!): User!
+   getUser(id: Int!): User!
    hello: String
    login(email: String!, password: String!): User!
 }

@@ -7,7 +7,7 @@ import {
   updateUserLevel,
   updateUserPoint,
   createUser,
-  user
+  getUser
 } from "../../repositories";
 
 const addUser = async ({ username, password, email }) => {
@@ -47,9 +47,9 @@ const updatePassword = async ({ id, newPassword }) => {
   return updateUserPassword({ id, password });
 };
 
-export const resolversUser = {
+export const user = {
   hello: () => "Hello, World",
-  user,
+  getUser,
   addUser,
   login,
   updateEmail,

@@ -19,7 +19,7 @@ export const createUser = async ({ username, password, email }) => {
   }
 };
 
-export const user = async id => {
+export const getUser = async id => {
   try {
     return await getRepository(User).findOne(id);
   } catch (err) {
