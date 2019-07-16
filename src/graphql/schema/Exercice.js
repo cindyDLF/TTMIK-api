@@ -2,6 +2,8 @@ import { buildSchema } from "graphql";
 
 export const Exercice = buildSchema(
   `
+  scalar JSON
+
   type Thematic {
     id: Int!
     name: String!
@@ -14,7 +16,7 @@ export const Exercice = buildSchema(
     complete_point: Int!
     step: Int!
     point_per_step: Int!
-    data: String!
+    data: JSON
     thematic: Thematic
   }
   type Query {

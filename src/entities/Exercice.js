@@ -19,7 +19,8 @@ export class Exercice extends BaseEntity {
 
   @Column("integer") point_per_step;
 
-  @Column("varchar") data;
+  @Column({ type: "jsonb", nullable: true })
+  data;
 
   @ManyToOne(type => Thematic, thematic => thematic.exercice, { eager: true })
   thematic;

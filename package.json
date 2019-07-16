@@ -23,6 +23,7 @@
     "express-graphql": "^0.8.0",
     "graphql": "^14.4.2",
     "graphql-tools": "^4.0.5",
+    "graphql-type-json": "^0.3.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.14",
     "pg": "^7.11.0",

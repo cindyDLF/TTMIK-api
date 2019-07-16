@@ -1,5 +1,6 @@
 import { getConnection, getRepository } from "typeorm";
 import { Exercice, Thematic } from "../entities/index";
+import { readFile } from "../utils/readFile";
 
 const initHangeul = async () => {
   try {
@@ -15,7 +16,7 @@ const initHangeul = async () => {
     vowel.complete_point = 200;
     vowel.step = 10;
     vowel.point_per_step = 5;
-    vowel.data = "come soon";
+    vowel.data = readFile("../data/hangeul/hangul-vowels.json");
     vowel.thematic = hangeul;
     await exerciceRepository.save(vowel);
 
@@ -24,7 +25,7 @@ const initHangeul = async () => {
     consonant.complete_point = 200;
     consonant.step = 10;
     consonant.point_per_step = 5;
-    consonant.data = "come soon";
+    consonant.data = readFile("../data/hangeul/hangul-consonants.json");
     consonant.thematic = hangeul;
     await exerciceRepository.save(consonant);
   } catch (err) {
