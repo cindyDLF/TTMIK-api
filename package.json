@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node ./src/server.js"
+    "dev": "nodemon --exec babel-node ./src/server.js",
+    "seed": "nodemon --exec babel-node ./src/seeds/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
@@ -21,7 +22,10 @@
     "express": "^4.17.1",
     "express-graphql": "^0.8.0",
     "graphql": "^14.4.2",
+    "graphql-tools": "^4.0.5",
+    "graphql-type-json": "^0.3.0",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.14",
     "pg": "^7.11.0",
     "typeorm": "^0.2.18"
   }
