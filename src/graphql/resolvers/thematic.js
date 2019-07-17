@@ -1,5 +1,6 @@
-import { getThematics } from "../../repositories";
+import { getThematics, getOneThematic } from "../../repositories";
 
 export const thematic = {
-  thematic: () => getThematics()
+  allThematic: () => getThematics(),
+  thematic: name => getOneThematic({ name })
 };

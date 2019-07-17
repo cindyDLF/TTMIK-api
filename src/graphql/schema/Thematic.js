@@ -2,14 +2,25 @@ import { buildSchema } from "graphql";
 
 export const Thematic = buildSchema(
   `
-  scalar DateTime
+  scalar JSON
 
+  type Exercice {
+    id: Int!
+    name: String!
+    complete_point: Int!
+    step: Int!
+    point_per_step: Int!
+    data: JSON!
+    thematicId: Int
+  }
   type Thematic {
     id: Int!
     name: String!
+    exercice: [Exercice]
   }
   type Query {
-   thematic: [Thematic]!
+   allThematic: [Thematic]!
+   thematic(name: String!): Thematic
 }
 `
 );
