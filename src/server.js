@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import { createConnection } from "typeorm";
 import graphqlHTTP from "express-graphql";
 import { BdConfig } from "../config";
-import schemas from "./graphql/schema/index";
+import mergedSchema from "./graphql/schema/index";
 import resolvers from "./graphql/resolvers/index";
 
 const app = express();
@@ -21,7 +21,7 @@ const startServer = async () => {
     "/graphql",
     graphqlHTTP({
       graphiql: true,
-      schema: schemas,
+      schema: mergedSchema,
       rootValue: resolvers
     })
   );
