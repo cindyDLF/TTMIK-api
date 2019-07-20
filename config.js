@@ -1,4 +1,4 @@
-import { User, Thematic, Exercice } from "./src/entities/index";
+import { User, Thematic, Exercice, Progression } from "./src/entities/index";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -10,7 +10,7 @@ export const BdConfig = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE_NAME,
-  entities: [User, Thematic, Exercice],
+  entities: [User, Thematic, Exercice, Progression],
   synchronize: true,
   logging: true,
   dropSchema: false
