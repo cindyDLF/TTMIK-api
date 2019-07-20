@@ -1,3 +1,5 @@
+# import Progression from 'progression.graphql'
+
 scalar DateTime
 
 type User {
@@ -8,6 +10,7 @@ type User {
   point: Int!
   level: Int!
   date_register: DateTime!
+  progression: [Progression]
 }
 
 type Query {

@@ -15,4 +15,5 @@ type Exercice {
 type Query {
   allExercices: [Exercice]!
   exercice(name: String!): Exercice!
+  exerciceById(id: Int!): Exercice!
 }

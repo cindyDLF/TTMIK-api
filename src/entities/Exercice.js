@@ -3,9 +3,11 @@ import {
   PrimaryGeneratedColumn,
   Column,
   BaseEntity,
-  ManyToOne
+  ManyToOne,
+  OneToMany
 } from "typeorm";
 import { Thematic } from "./Thematic";
+import { Progression } from "./Progression";
 
 @Entity("Exercice")
 export class Exercice extends BaseEntity {
@@ -24,4 +26,7 @@ export class Exercice extends BaseEntity {
 
   @ManyToOne(type => Thematic, thematic => thematic.exercice, { eager: true })
   thematic;
+
+  @OneToMany(type => Progression, progression => progression.exercice)
+  progression;
 }

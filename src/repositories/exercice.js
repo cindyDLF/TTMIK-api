@@ -19,3 +19,11 @@ export const getOneExercice = async name => {
     console.log(err);
   }
 };
+
+export const getExerciceById = async id => {
+  try {
+    return await getRepository(Exercice).findOne(id);
+  } catch (err) {
+    console.log(err);
+  }
+};

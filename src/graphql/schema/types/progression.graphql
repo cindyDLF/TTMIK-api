@@ -1,0 +1,21 @@
+# import Exercice from 'exercice.graphql'
+# import User from 'user.graphql'
+
+type Progression {
+  id: Int
+  score: Int
+  time: String
+  userId: Int
+  exerciceId: Int
+  exercice: Exercice
+  user: User
+}
+
+type Query {
+hello: String
+getProgression(userId: Int!): [Progression]
+}
+
+type Mutation {
+updateProgression(userId: ID!,  exerciceId: ID!, score: Int!, time: String!): String!
+}

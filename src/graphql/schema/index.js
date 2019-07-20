@@ -3,29 +3,29 @@ import fs from "fs";
 import { makeExecutableSchema, mergeSchemas } from "graphql-tools";
 import { importSchema } from "graphql-import";
 
-const schemaPathName = path.join(__dirname, "./types");
+const filesPath = path.join(__dirname, "./types");
 
-const schemas = [];
+const types = [];
 let files = [];
 
 try {
-  files = fs.readdirSync(schemaPathName);
+  files = fs.readdirSync(filesPath);
 } catch (err) {
   console.log("error _ %s", err.message);
 }
 
 files.forEach(fileName => {
   if (".graphql" === path.extname(fileName)) {
-    schemas.push(
+    types.push(
       makeExecutableSchema({
-        typeDefs: importSchema(path.join(schemaPathName, fileName))
+        typeDefs: importSchema(path.join(filesPath, fileName))
       })
     );
   }
 });
 
-const mergedSchema = mergeSchemas({
-  schemas
+const schemas = mergeSchemas({
+  schemas: types
 });
 
-export default mergedSchema;
+export default schemas;
