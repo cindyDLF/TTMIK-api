@@ -7,7 +7,8 @@ import {
   updateUserLevel,
   updateUserPoint,
   createUser,
-  getUser
+  getUser,
+  exerciceEnd
 } from "../../repositories";
 
 const addUser = async ({ username, password, email }) => {
@@ -55,5 +56,7 @@ export const user = {
   updateEmail,
   updatePassword,
   updateLevel: (id, level) => updateUserLevel(id, level),
-  updatePoint: (id, point) => updateUserPoint(id, point)
+  updatePoint: (id, point) => updateUserPoint(id, point),
+  exerciceEnd: (userId, point, exerciceId, score, time) =>
+    exerciceEnd(userId, point, exerciceId, score, time)
 };

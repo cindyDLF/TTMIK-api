@@ -1,7 +1,7 @@
 import { getConnection, getRepository } from "typeorm";
 import { hash } from "../utils/bcrypt";
 import { User } from "../entities/index";
-import { createProgression } from "./progression";
+import { createProgression, updateProgression } from "./progression";
 import { getExercices } from "./exercice";
 
 export const createUser = async ({ username, password, email }) => {
@@ -98,8 +98,14 @@ export const updateUserPoint = async ({ id, point }) => {
       .set({ point })
       .where("id = :id", { id })
       .execute();
-    return "points updated";
+    return "point updated";
   } catch (err) {
     console.log(err);
   }
+};
+
+export const exerciceEnd = async (userId, point, exerciceId, score, time) => {
+  await updateUserPoint(userId, point);
+  await updateProgression(userId, exerciceId, score, time);
+  return "user updated";
 };
