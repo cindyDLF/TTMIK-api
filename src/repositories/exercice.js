@@ -12,7 +12,7 @@ export const getExercices = async () => {
   }
 };
 
-export const getOneExercice = async name => {
+export const getExerciceByName = async name => {
   try {
     return await getRepository(Exercice).findOne(name);
   } catch (err) {
