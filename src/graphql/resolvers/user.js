@@ -56,7 +56,5 @@ export const user = {
   updateEmail,
   updatePassword,
   updateLevel: (id, level) => updateUserLevel(id, level),
-  updatePoint: (id, point) => updateUserPoint(id, point),
-  exerciceEnd: (userId, point, exerciceId, score, time) =>
-    exerciceEnd(userId, point, exerciceId, score, time)
+  updatePoint: (id, point) => updateUserPoint(id, point)
 };

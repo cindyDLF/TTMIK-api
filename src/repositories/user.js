@@ -41,6 +41,7 @@ export const findUserByEmail = async ({ email }) => {
       .createQueryBuilder()
       .select("user")
       .from(User, "user")
+      .leftJoinAndSelect("user.progression", "progression")
       .where("user.email = :email", { email })
       .getOne();
   } catch (err) {
@@ -102,10 +103,4 @@ export const updateUserPoint = async ({ id, point }) => {
   } catch (err) {
     console.log(err);
   }
-};
-
-export const exerciceEnd = async (userId, point, exerciceId, score, time) => {
-  await updateUserPoint(userId, point);
-  await updateProgression(userId, exerciceId, score, time);
-  return "user updated";
 };
