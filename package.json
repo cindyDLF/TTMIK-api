@@ -6,8 +6,10 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node ./src/server.js",
-    "seed": "nodemon --exec babel-node ./src/seeds/index.js"
+    "dev": "NODE_ENV=development nodemon --exec babel-node ./src/server.js",
+    "seed": "nodemon --exec babel-node ./src/seeds/index.js",
+    "start":
+      "npx babel-node ./src/seeds/index.js && nodemon --exec babel-node ./src/server.js"
   },
   "dependencies": {
     "@babel/core": "^7.4.5",

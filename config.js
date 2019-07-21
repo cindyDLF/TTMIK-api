@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const isDev = process.env.NODE_ENV === "development";
+
 export const BdConfig = {
   type: process.env.DB_TYPE,
   host: process.env.DB_HOST,
@@ -11,7 +13,7 @@ export const BdConfig = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE_NAME,
   entities: [User, Thematic, Exercice, Progression],
-  synchronize: true,
+  synchronize: !isDev,
   logging: true,
   dropSchema: false
 };
