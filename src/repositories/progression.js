@@ -39,10 +39,10 @@ export const createProgression = async ({ user, exercice }) => {
 };
 
 export const updateProgression = async ({
-  exerciceId,
   userId,
-  time,
-  score
+  exerciceId,
+  score,
+  time
 }) => {
   try {
     const user = await getUser(userId);
