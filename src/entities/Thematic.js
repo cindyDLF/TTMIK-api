@@ -9,9 +9,11 @@ import { Exercice } from "./Exercice";
 
 @Entity("Thematic")
 export class Thematic extends BaseEntity {
-  @PrimaryGeneratedColumn() id;
+  @PrimaryGeneratedColumn() 
+  id;
 
-  @Column("varchar") name;
+  @Column("varchar", {unique: true}) 
+  name;
 
   @OneToMany(type => Exercice, exercice => exercice.thematic)
   exercice;
