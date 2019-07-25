@@ -13,7 +13,7 @@ export const BdConfig = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE_NAME,
   entities: [User, Thematic, Exercice, Progression],
-  synchronize: !isDev,
+  synchronize: isDev,
   logging: true,
   dropSchema: false
 };

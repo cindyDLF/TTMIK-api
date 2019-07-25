@@ -13,11 +13,14 @@ import { User } from "./User";
 
 @Entity("Progression")
 export class Progression extends BaseEntity {
-  @PrimaryGeneratedColumn() id;
+  @PrimaryGeneratedColumn() 
+  id;
 
-  @Column("integer") score;
+  @Column("integer") 
+  score;
 
-  @Column("varchar") time;
+  @Column("varchar") 
+  time;
 
   @ManyToOne(type => Exercice, exercice => exercice.progression)
   exercice;

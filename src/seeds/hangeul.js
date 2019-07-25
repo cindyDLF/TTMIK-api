@@ -6,39 +6,28 @@ import { getExerciceByName } from "../repositories/index";
 const initHangeul = async () => {
   try {
     const thematicRepository = getRepository(Thematic);
-    let hangeul = await thematicRepository.findOne({ name: "hangeul" });
-    if (hangeul === undefined) {
-      const hangeul = new Thematic();
-      hangeul.name = "hangeul";
-      await thematicRepository.save(hangeul);
-    }
+
+    const hangeul = new Thematic();
+    hangeul.name = "hangeul";
+    await thematicRepository.save(hangeul);
 
     const exerciceRepository = getRepository(Exercice);
-    let vowel = await exerciceRepository.findOne({ name: "vowel" });
+    const hangeulExercises = ['vowels', 'consonants']
 
-    if (vowel === undefined) {
-      vowel = new Exercice();
-      vowel.name = "vowel";
-      vowel.complete_point = 200;
-      vowel.step = 10;
-      vowel.point_per_step = 5;
-      vowel.data = readFile("../data/hangeul/hangul-vowels.json");
-      vowel.thematic = hangeul;
-      await exerciceRepository.save(vowel);
-    }
+    hangeulExercises.forEach(async name => {
+      const { info, data } = readFile(`../data/hangeul/${name}.json`);
+      const { complete_point, step, point_per_step } = info
 
-    let consonant = await exerciceRepository.findOne({ name: "consonant" });
+      const ex = new Exercice();
+      ex.name = name;
+      ex.complete_point = complete_point;
+      ex.step = step;
+      ex.point_per_step = point_per_step;
+      ex.data = data
+      ex.thematic = hangeul;
 
-    if (consonant === undefined) {
-      const consonant = new Exercice();
-      consonant.name = "consonant";
-      consonant.complete_point = 200;
-      consonant.step = 10;
-      consonant.point_per_step = 5;
-      consonant.data = readFile("../data/hangeul/hangul-consonants.json");
-      consonant.thematic = hangeul;
-      await exerciceRepository.save(consonant);
-    }
+      await exerciceRepository.save(ex);
+    })
   } catch (err) {
     console.log(err);
   }

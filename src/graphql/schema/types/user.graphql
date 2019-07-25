@@ -25,5 +25,4 @@ type Mutation {
   updatePassword(id: Int!, newPassword: String!): String!
   updateLevel(id: Int!, level: Int): String!
   updatePoint(id: Int!, point: Int): String!
-  exerciceEnd(id: Int,  point: Int!, exerciceId:Int!, score: Int!, time: String!): String!
 }

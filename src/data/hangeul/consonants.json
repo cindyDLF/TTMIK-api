@@ -1,0 +1,65 @@
+{
+  "info": {
+    "complete_point": 200,
+    "step": 10,
+    "point_per_step": 5
+  },
+  "data": [
+    {
+      "kr": "ㅂ",
+      "romanization": "B"
+    },
+    {
+      "kr": "ㅊ",
+      "romanization": "CH"
+    },
+    {
+      "kr": "ㄷ",
+      "romanization": "D"
+    },
+    {
+      "kr": "ㄱ",
+      "romanization": "G"
+    },
+    {
+      "kr": "ㅎ",
+      "romanization": "H"
+    },
+    {
+      "kr": "ㅈ",
+      "romanization": "J"
+    },
+    {
+      "kr": "ㅋ",
+      "romanization": "K"
+    },
+    {
+      "kr": "ㅁ",
+      "romanization": "M"
+    },
+    {
+      "kr": "ㄴ",
+      "romanization": "N"
+    },
+    {
+      "kr": "ㅇ",
+      "romanization": "NG"
+    },
+    {
+      "kr": "ㅍ",
+      "romanization": "P"
+    },
+    {
+      "kr": "ㄹ",
+      "romanization": "R"
+    },
+    {
+      "kr": "ㅅ",
+      "romanization": "S"
+    },
+    {
+      "kr": "ㅌ",
+      "romanization": "T"
+    }
+  ]
+}
