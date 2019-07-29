@@ -9,7 +9,7 @@
     "dev": "NODE_ENV=development nodemon --exec babel-node ./src/server.js",
     "seed": "npx babel-node ./src/seeds/index.js",
     "start":
-      "npx babel-node ./src/server.js"
+      "babel-node ./src/server.js"
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
