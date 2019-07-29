@@ -6,17 +6,12 @@ if(isDev) {
   dotenv.config();
 }
 
-
 const regExp = /(.*):\/\/(.*):(.*)@(.*):(.*)\/(.*)/gm
 
 let [, , username, password, host, s_port, database] = regExp.exec(process.env
   .DATABASE_URL)
 
-  console.log(process.env.DATABASE_URL)
-
 const port = parseInt(s_port)
-
-
 
 export const BdConfig = {
   type: 'postgres',
