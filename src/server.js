@@ -16,7 +16,7 @@ const envPath = path.resolve(__dirname, "../.env") + ""
 try {
   if (fs.existsSync(envPath)) {
 
-  const port = process.env.PORT;
+  const port = process.env.PORT || 3000;
 
   const startServer = async () => {
     await createConnection(BdConfig)
