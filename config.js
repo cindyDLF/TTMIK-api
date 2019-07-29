@@ -3,17 +3,25 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const regExp = /(.*):\/\/(.*):(.*)@(.*):(.*)\/(.*)/gm
+
+let [, , username, password, host, s_port, database] = regExp.exec(process.env
+  .DATABASE_URL)
+
+const port = parseInt(s_port)
+
 const isDev = process.env.NODE_ENV === "development";
 
 export const BdConfig = {
-  type: process.env.DB_TYPE,
-  host: process.env.DB_HOST,
-  port: 5432,
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE_NAME,
+  type: 'postgres',
+  host,
+  port,
+  username,
+  password,
+  database,
   entities: [User, Thematic, Exercice, Progression],
   synchronize: isDev,
   logging: true,
-  dropSchema: false
+  dropSchema: false,
+  ssl: !isDev
 };
