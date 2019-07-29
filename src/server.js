@@ -11,10 +11,7 @@ import { dirname } from "path";
 
 const app = express();
 dotenv.config();
-const envPath = path.resolve(__dirname, "../.env") + ""
-
-try {
-  if (fs.existsSync(envPath)) {
+//const envPath = path.resolve(__dirname, "../.env") + ""
 
   const port = process.env.PORT || 3000;
 
@@ -41,9 +38,3 @@ try {
     );
   };
   startServer();
-  } else {
-    console.log("file .env not found, please create it before run server")
-  }
-} catch (error) {
-  console.log(error);
-} 
