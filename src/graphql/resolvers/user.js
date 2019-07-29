@@ -7,7 +7,8 @@ import {
   updateUserLevel,
   updateUserPoint,
   createUser,
-  getUser
+  getUser,
+  exerciceEnd
 } from "../../repositories";
 
 const addUser = async ({ username, password, email }) => {

@@ -1,6 +1,8 @@
 import { getConnection, getRepository } from "typeorm";
 import { hash } from "../utils/bcrypt";
 import { User } from "../entities/index";
+import { createProgression, updateProgression } from "./progression";
+import { getExercices } from "./exercice";
 
 export const createUser = async ({ username, password, email }) => {
   try {
@@ -13,6 +15,10 @@ export const createUser = async ({ username, password, email }) => {
     user.date_register = new Date();
 
     await getRepository(User).save(user);
+    const exercices = await getExercices();
+    exercices.forEach(async exercice => {
+      await createProgression({ user, exercice });
+    });
     return "successed to create user";
   } catch (err) {
     console.log(err);
@@ -21,7 +27,9 @@ export const createUser = async ({ username, password, email }) => {
 
 export const getUser = async id => {
   try {
-    return await getRepository(User).findOne(id);
+    return await getRepository(User).findOne(id, {
+      relations: ["progression", "progression.exercice"]
+    });
   } catch (err) {
     console.log(err);
   }
@@ -33,6 +41,7 @@ export const findUserByEmail = async ({ email }) => {
       .createQueryBuilder()
       .select("user")
       .from(User, "user")
+      .leftJoinAndSelect("user.progression", "progression")
       .where("user.email = :email", { email })
       .getOne();
   } catch (err) {
@@ -90,7 +99,7 @@ export const updateUserPoint = async ({ id, point }) => {
       .set({ point })
       .where("id = :id", { id })
       .execute();
-    return "points updated";
+    return "point updated";
   } catch (err) {
     console.log(err);
   }

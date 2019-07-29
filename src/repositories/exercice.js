@@ -12,9 +12,17 @@ export const getExercices = async () => {
   }
 };
 
-export const getOneExercice = async name => {
+export const getExerciceByName = async name => {
   try {
     return await getRepository(Exercice).findOne(name);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getExerciceById = async id => {
+  try {
+    return await getRepository(Exercice).findOne(id);
   } catch (err) {
     console.log(err);
   }

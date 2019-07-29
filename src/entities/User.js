@@ -3,29 +3,35 @@ import {
   PrimaryGeneratedColumn,
   Column,
   BaseEntity,
-  Index
+  Index,
+  OneToMany
 } from "typeorm";
+
+import { Progression } from "./Progression";
 
 @Entity("User")
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn() 
   id;
 
-  @Column("varchar")
+  @Column("varchar") 
   username;
 
-  @Column("varchar")
+  @Column("varchar") 
   password;
 
   @Index({ unique: true }) @Column("varchar")
   email;
 
-  @Column("integer")
+  @Column("integer") 
   point;
 
   @Column("integer", { default: 1 })
   level;
 
-  @Column("timestamp")
+  @Column("timestamp") 
   date_register;
+
+  @OneToMany(type => Progression, progression => progression.user)
+  progression;
 }
