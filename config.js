@@ -21,7 +21,7 @@ export const BdConfig = {
   password,
   database,
   entities: [User, Thematic, Exercice, Progression],
-  synchronize: isDev,
+  synchronize: true,
   logging: true,
   dropSchema: false,
   ssl: !isDev
