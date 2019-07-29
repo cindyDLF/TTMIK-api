@@ -1,7 +1,11 @@
 import { User, Thematic, Exercice, Progression } from "./src/entities/index";
 import dotenv from "dotenv";
 
-dotenv.config();
+const isDev = process.env.NODE_ENV === "development";
+if(isDev) {
+  dotenv.config();
+}
+
 
 const regExp = /(.*):\/\/(.*):(.*)@(.*):(.*)\/(.*)/gm
 
@@ -10,7 +14,7 @@ let [, , username, password, host, s_port, database] = regExp.exec(process.env
 
 const port = parseInt(s_port)
 
-const isDev = process.env.NODE_ENV === "development";
+
 
 export const BdConfig = {
   type: 'postgres',
