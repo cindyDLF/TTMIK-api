@@ -11,10 +11,10 @@ import {
   exerciceEnd
 } from "../../repositories";
 
-const addUser = async ({ username, password, email }) => {
+const addUser = async ({ username, password, email, avatar }) => {
   const validateEmail = validatorEmail(email);
   if (validateEmail) {
-    return createUser({ username, password, email });
+    return createUser({ username, password, email, avatar });
   } else {
     throw new Error("email not valide");
   }

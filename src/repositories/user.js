@@ -4,7 +4,7 @@ import { User } from "../entities/index";
 import { createProgression, updateProgression } from "./progression";
 import { getExercices } from "./exercice";
 
-export const createUser = async ({ username, password, email }) => {
+export const createUser = async ({ username, password, email, avatar }) => {
   try {
     const user = new User();
     user.username = username;
@@ -12,6 +12,7 @@ export const createUser = async ({ username, password, email }) => {
     user.email = email;
     user.level = 1;
     user.point = 0;
+    user.avatar = avatar;
     user.date_register = new Date();
 
     await getRepository(User).save(user);

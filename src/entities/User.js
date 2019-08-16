@@ -23,6 +23,9 @@ export class User extends BaseEntity {
   @Index({ unique: true }) @Column("varchar")
   email;
 
+  @Column("varchar")
+  avatar
+
   @Column("integer") 
   point;
 
