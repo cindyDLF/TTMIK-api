@@ -9,6 +9,7 @@ type User {
   email: String!
   point: Int!
   level: Int!
+  avatar: String!
   date_register: DateTime!
   progression: [Progression]
 }
@@ -20,7 +21,7 @@ type Query {
 }
 
 type Mutation {
-  addUser(username: String!,  password: String!, email: String!): String!
+  addUser(username: String!,  password: String!, email: String!, avatar: String!): String!
   updateEmail(id: Int!, email: String!): String!
   updatePassword(id: Int!, newPassword: String!): String!
   updateLevel(id: Int!, level: Int): String!
