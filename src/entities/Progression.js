@@ -18,10 +18,7 @@ export class Progression extends BaseEntity {
 
   @Column("integer") 
   score;
-
-  @Column("varchar") 
-  time;
-
+  
   @ManyToOne(type => Exercice, exercice => exercice.progression)
   exercice;
 

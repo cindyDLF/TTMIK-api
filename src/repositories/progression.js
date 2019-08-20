@@ -27,7 +27,6 @@ export const createProgression = async ({ user, exercice }) => {
   try {
     const progression = new Progression();
     progression.score = 0;
-    progression.time = "0";
     progression.user = user;
     progression.exercice = exercice;
 
@@ -41,8 +40,7 @@ export const createProgression = async ({ user, exercice }) => {
 export const updateProgression = async ({
   userId,
   exerciceId,
-  score,
-  time
+  score
 }) => {
   try {
     const user = await getUser(userId);
@@ -60,9 +58,7 @@ export const updateProgression = async ({
       }
     });
     progression.score = score;
-    progression.time = time;
-    await getRepository(Progression).save(progression);
-    return "progression updated";
+    return await getRepository(Progression).save(progression);
   } catch (err) {
     console.log(err);
   }
