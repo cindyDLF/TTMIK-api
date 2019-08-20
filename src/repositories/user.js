@@ -50,15 +50,16 @@ export const findUserByEmail = async ({ email }) => {
   }
 };
 
-export const updateUserEmail = async ({ id, email }) => {
+export const updateUser = async ({ id, username, email, password }) => {
   try {
     await getConnection()
       .createQueryBuilder()
       .update(User)
-      .set({ email })
+      .set({ email, username, password })
       .where("id = :id", { id })
       .execute();
-    return "email updated";
+    const userRepository = getRepository(User);
+    return userRepository.findOne({ id });
   } catch (err) {
     console.log(err);
   }
@@ -86,7 +87,8 @@ export const updateUserLevel = async ({ id, level }) => {
       .set({ level })
       .where("id = :id", { id })
       .execute();
-    return "level updated";
+    const userRepository = getRepository(User);
+    return userRepository.findOne({ id });
   } catch (err) {
     console.log(err);
   }
@@ -100,7 +102,8 @@ export const updateUserPoint = async ({ id, point }) => {
       .set({ point })
       .where("id = :id", { id })
       .execute();
-    return "point updated";
+    const userRepository = getRepository(User);
+    return userRepository.findOne({ id });
   } catch (err) {
     console.log(err);
   }
