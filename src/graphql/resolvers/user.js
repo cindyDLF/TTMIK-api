@@ -2,7 +2,7 @@ import { comparePassword, hash } from "../../utils/bcrypt";
 import { validatorEmail } from "../../utils/validator";
 import {
   findUserByEmail,
-  updateUserEmail,
+  updateUser,
   updateUserPassword,
   updateUserLevel,
   updateUserPoint,
@@ -34,10 +34,11 @@ const login = async ({ email, password }) => {
   }
 };
 
-const updateEmail = async ({ id, email }) => {
+const updateUserInfo = async ({ id, username, email, newPassword }) => {
   const validateEmail = validatorEmail(email);
   if (validateEmail) {
-    return updateUserEmail({ id, email });
+    const password = await hash(newPassword);
+    return updateUser({ id, username, email, password });
   } else {
     throw new Error("email not valide");
   }
@@ -53,7 +54,7 @@ export const user = {
   getUser,
   addUser,
   login,
-  updateEmail,
+  updateUserInfo,
   updatePassword,
   updateLevel: (id, level) => updateUserLevel(id, level),
   updatePoint: (id, point) => updateUserPoint(id, point)

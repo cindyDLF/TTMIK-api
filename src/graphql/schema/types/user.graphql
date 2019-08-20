@@ -22,8 +22,8 @@ type Query {
 
 type Mutation {
   addUser(username: String!,  password: String!, email: String!, avatar: String!): String!
-  updateEmail(id: Int!, email: String!): String!
+  updateUserInfo(id: Int!, username: String!, email: String!, newPassword: String!): User!
   updatePassword(id: Int!, newPassword: String!): String!
-  updateLevel(id: Int!, level: Int): String!
-  updatePoint(id: Int!, point: Int): String!
+  updateLevel(id: Int!, level: Int): User!
+  updatePoint(id: Int!, point: Int): User!
 }
