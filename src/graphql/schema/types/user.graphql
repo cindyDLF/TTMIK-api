@@ -15,7 +15,7 @@ type User {
 }
 
 type Query {
-  getUser(id: Int!): User!
+  getUser(id: String!): User!
   hello: String
   login(email: String!, password: String!): User!
 }

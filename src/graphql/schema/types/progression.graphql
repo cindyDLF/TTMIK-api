@@ -4,7 +4,6 @@
 type Progression {
   id: Int
   score: Int
-  time: String
   userId: Int
   exerciceId: Int
   exercice: Exercice
@@ -17,5 +16,5 @@ getProgression(userId: Int!): [Progression]
 }
 
 type Mutation {
-updateProgression(userId: ID!,  exerciceId: ID!, score: Int!, time: String!): String!
+updateProgression(userId: ID!,  exerciceId: ID!, score: Int!): Progression!
 }

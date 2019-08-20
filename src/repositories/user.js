@@ -43,6 +43,7 @@ export const findUserByEmail = async ({ email }) => {
       .select("user")
       .from(User, "user")
       .leftJoinAndSelect("user.progression", "progression")
+      .leftJoinAndSelect("progression.exercice", "exercice")
       .where("user.email = :email", { email })
       .getOne();
   } catch (err) {
