@@ -60,7 +60,7 @@ export const updateUser = async ({ id, username, email }) => {
       .where("id = :id", { id })
       .execute();
     const userRepository = getRepository(User);
-    return userRepository.findOne({ id });
+    return userRepository.findOne({ where: {id}, relations: ['progression', 'progression.exercice']});
   } catch (err) {
     console.log(err);
   }
