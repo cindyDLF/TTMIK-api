@@ -51,12 +51,12 @@ export const findUserByEmail = async ({ email }) => {
   }
 };
 
-export const updateUser = async ({ id, username, email, password }) => {
+export const updateUser = async ({ id, username, email }) => {
   try {
     await getConnection()
       .createQueryBuilder()
       .update(User)
-      .set({ email, username, password })
+      .set({ email, username })
       .where("id = :id", { id })
       .execute();
     const userRepository = getRepository(User);

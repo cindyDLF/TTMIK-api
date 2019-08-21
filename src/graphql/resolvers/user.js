@@ -34,11 +34,10 @@ const login = async ({ email, password }) => {
   }
 };
 
-const updateUserInfo = async ({ id, username, email, newPassword }) => {
+const updateUserInfo = async ({ id, username, email }) => {
   const validateEmail = validatorEmail(email);
   if (validateEmail) {
-    const password = await hash(newPassword);
-    return updateUser({ id, username, email, password });
+    return updateUser({ id, username, email });
   } else {
     throw new Error("email not valide");
   }
