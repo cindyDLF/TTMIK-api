@@ -17,11 +17,11 @@ type User {
 type Query {
   getUser(id: String!): User!
   hello: String
-  login(email: String!, password: String!): User!
 }
 
 type Mutation {
   addUser(username: String!,  password: String!, email: String!, avatar: String!): String!
+  login(email: String!, password: String!): User!
   updateUserInfo(id: Int!, username: String!, email: String!, newPassword: String!): User!
   updatePassword(id: Int!, newPassword: String!): String!
   updateLevel(id: Int!, level: Int): User!
