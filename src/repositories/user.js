@@ -89,7 +89,7 @@ export const updateUserLevel = async ({ id, level }) => {
       .where("id = :id", { id })
       .execute();
     const userRepository = getRepository(User);
-    return userRepository.findOne({ id });
+    return userRepository.findOne({ where: {id}, relations: ['progression', 'progression.exercice']});
   } catch (err) {
     console.log(err);
   }
@@ -104,7 +104,7 @@ export const updateUserPoint = async ({ id, point }) => {
       .where("id = :id", { id })
       .execute();
     const userRepository = getRepository(User);
-    return userRepository.findOne({ id });
+    return userRepository.findOne({ where: {id}, relations: ['progression', 'progression.exercice']});
   } catch (err) {
     console.log(err);
   }
