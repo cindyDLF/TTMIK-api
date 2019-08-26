@@ -85,7 +85,7 @@ export const updateUserLevel = async ({ id, level }) => {
     await getConnection()
       .createQueryBuilder()
       .update(User)
-      .set({ level })
+      .set({ level, point: 0 })
       .where("id = :id", { id })
       .execute();
     const userRepository = getRepository(User);
