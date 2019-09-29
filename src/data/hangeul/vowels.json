@@ -2,7 +2,9 @@
   "info": {
     "complete_point": 200,
     "step": 10,
-    "point_per_step": 5
+    "point_per_step": 5,
+    "access_level": 1,
+    "exercice_type": "qcm"
   },
   "data": [
     {

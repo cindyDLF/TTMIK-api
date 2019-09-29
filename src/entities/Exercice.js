@@ -2,7 +2,6 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  Index,
   BaseEntity,
   ManyToOne,
   OneToMany,
@@ -13,20 +12,26 @@ import { Progression } from "./Progression";
 
 @Entity("Exercice")
 export class Exercice extends BaseEntity {
-  @PrimaryGeneratedColumn() 
+  @PrimaryGeneratedColumn()
   id;
 
-  @Column("varchar", {unique: true})
+  @Column("varchar")
   name;
 
-  @Column("integer") 
+  @Column("integer")
   complete_point;
 
-  @Column("integer") 
+  @Column("integer")
   step;
 
-  @Column("integer") 
+  @Column("integer")
   point_per_step;
+
+  @Column("integer")
+  access_level;
+
+  @Column("varchar", { nullable: true })
+  exercice_type;
 
   @Column({ type: "jsonb", nullable: true })
   data;
@@ -34,6 +39,8 @@ export class Exercice extends BaseEntity {
   @ManyToOne(type => Thematic, thematic => thematic.exercice, { eager: true })
   thematic;
 
-  @OneToMany(type => Progression, progression => progression.exercice)
+  @OneToMany(type => Progression, progression => progression.exercice, {
+    cascade: true
+  })
   progression;
 }

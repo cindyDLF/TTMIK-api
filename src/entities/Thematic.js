@@ -9,12 +9,14 @@ import { Exercice } from "./Exercice";
 
 @Entity("Thematic")
 export class Thematic extends BaseEntity {
-  @PrimaryGeneratedColumn() 
+  @PrimaryGeneratedColumn()
   id;
 
-  @Column("varchar", {unique: true}) 
+  @Column("varchar")
   name;
 
-  @OneToMany(type => Exercice, exercice => exercice.thematic)
+  @OneToMany(type => Exercice, exercice => exercice.thematic, {
+    cascade: true
+  })
   exercice;
 }
