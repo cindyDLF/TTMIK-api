@@ -1,0 +1,51 @@
+{
+  "info": {
+    "complete_point": 150,
+    "step": 10,
+    "point_per_step": 5,
+    "access_level": 4,
+    "exercice_type": "swipe"
+  },
+  "data": [
+    {
+      "kr": "여행 가방",
+      "rom": "yeohaeng gabang",
+      "mean": "suitecase"
+    },
+    {
+      "kr": "여권",
+      "rom": "yeogwon",
+      "mean": "passport"
+    },
+    {
+      "kr": "비행기",
+      "rom": "bihaeng-gi",
+      "mean": "airplane"
+    },
+    {
+      "kr": "기차",
+      "rom": "gicha",
+      "mean": "train"
+    },
+    {
+      "kr": "택시",
+      "rom": "taegsi",
+      "mean": "taxi"
+    },
+    {
+      "kr": "호텔",
+      "rom": "ho-tel",
+      "mean": "hotel"
+    },
+    {
+      "kr": "돈",
+      "rom": "don",
+      "mean": "money"
+    },
+    {
+      "kr": "지하철",
+      "rom": "jihacheol",
+      "mean": "subway"
+    }
+  ]
+}
