@@ -6,6 +6,8 @@ type Exercice {
   id: Int!
   name: String!
   complete_point: Int!
+  access_level: Int!
+  exercice_type: String!
   step: Int!
   point_per_step: Int!
   data: JSON
