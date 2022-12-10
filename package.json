@@ -22,7 +22,7 @@
     "bcrypt": "^3.0.6",
     "class-validator": "^0.9.1",
     "dotenv": "^8.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-graphql": "^0.8.0",
     "graphql": "^14.4.2",
     "graphql-import": "^0.7.1",
